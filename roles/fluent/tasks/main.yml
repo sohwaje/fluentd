@@ -21,7 +21,7 @@
   template:
     src: nginx.fluent.conf.js
     dest: "{{ config_directory }}/fluent.conf"
-  notify: 'restart-docker-nginx'
+  notify: 'restart-docker-fluent'
 #########################################################################################################
 - name: 'Start the fluent docker container'
   docker_container:
