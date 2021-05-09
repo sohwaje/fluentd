@@ -22,7 +22,7 @@
   @type forward
     <server>
       name fluentd-aggregator
-      host 10.1.11.8
+      host efk-scream.azure.i-screammedia.com
       port 24224
     </server>
 </match>
@@ -31,7 +31,7 @@
   @type forward
     <server>
       name fluentd-aggregator
-      host 10.1.11.8
+      host efk-scream.azure.i-screammedia.com
       port 24224
     </server>
 </match>
