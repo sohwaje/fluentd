@@ -1,0 +1,37 @@
+---
+- name: 'restart-docker-fluent'
+  become: yes
+  docker_container:
+    image: "fluent/fluentd:{{ docker_tag }}"
+    name: "{{ container_name }}"
+    volumes: '{{ exposed_volumes }}'
+    ports: '{{ ublished_ports }}'
+    exposed_ports: '{{ exposed_ports }}'
+    state: 'stopped'
+    restart_policy: 'no'
+    log_driver: 'syslog'
+    log_opt:
+      tag: "{{ container_name}}"
+  notify: 'start-docker-fluent'
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: 'start-docker-fluent'
+  become: yes
+  docker_container:
+    image: "fluent/fluentd:{{ docker_tag }}"
+    name: "{{ container_name }}"
+    volumes: '{{ exposed_volumes }}'
+    ports: '{{ published_ports }}'
+    exposed_ports: '{{ exposed_ports }}'
+    command: '{{ item }}'
+    loop:
+      - "gem install fluent-plugin-elasticsearch"
+      - "gem install fluent-plugin-grok-parser"
+    state: 'started'
+    restart_policy: 'no'
+    log_driver: 'syslog'
+    log_opt:
+      tag: "{{ container_name }}"
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

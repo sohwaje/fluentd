@@ -1,0 +1,39 @@
+---
+
+- include: multi_os.yml
+
+- include_tasks: RedHat.yml
+  when: ansible_os_family == 'RedHat' and ansible_distribution != 'Fedora'
+
+- name: "Create the {{ base_directory }} directory on the host"
+  file:
+    path: "{{ base_directory }}"
+    state: 'directory'
+    mode: '0755'
+
+- name: "Create the {{ config_directory }} directory on the host"
+  file:
+    path: "{{ config_directory }}"
+    state: 'directory'
+    mode: '0755'
+
+- name: "Put the {{ config_file_name }} file in {{ config_directory }}"
+  template:
+    src: nginx.fluent.conf.js
+    dest: "{{ config_directory }}/fluent.conf"
+  notify: 'restart-docker-nginx'
+#########################################################################################################
+- name: 'Start the fluent docker container'
+  docker_container:
+    image: "fluent/fluentd:{{ docker_tag }}"
+    name: "{{ container_name }}"
+    volumes: '{{ exposed_volumes }}'
+    ports: '{{ published_ports }}'
+    exposed_ports: '{{ exposed_ports }}'
+    state: 'started'
+    restart_policy: 'no'
+    log_driver: 'syslog'
+    log_options:
+      tag: "{{ container_name }}"
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
