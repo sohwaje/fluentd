@@ -22,4 +22,4 @@ published_ports:
 exposed_volumes:
   - /etc/localtime:/etc/localtime:ro
   - ./conf:/fluentd/etc # 로컬의 fluentd.conf 파일을 컨테이너로 마운트
-  - /var/log/nginx/:/var/log # 모니터링 대상 로그 디렉토리
+  - /home/sigongweb/apps/logs:/var/log # 모니터링 대상 로그 디렉토리
