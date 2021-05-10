@@ -5,7 +5,7 @@
     image: "fluent/fluentd:{{ docker_tag }}"
     name: "{{ container_name }}"
     volumes: '{{ exposed_volumes }}'
-    ports: '{{ ublished_ports }}'
+    ports: '{{ published_ports }}'
     exposed_ports: '{{ exposed_ports }}'
     state: 'stopped'
     restart_policy: 'no'
