@@ -29,7 +29,9 @@
       path: "{{ base_directory }}"
       source: build
     state: present
-
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    
 - name: "Put the {{ config_file_name }} file in {{ config_directory }}"
   template:
     src: springboot-fluent.conf.js
