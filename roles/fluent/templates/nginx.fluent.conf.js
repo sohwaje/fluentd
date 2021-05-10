@@ -11,7 +11,6 @@
 <source>
    @type tail
    path /var/log/*.log
-   pos_file /var/log/spring-boot-log.pos
    tag nginx.access
    format nginx
 </source>
