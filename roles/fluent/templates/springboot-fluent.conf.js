@@ -2,7 +2,7 @@
   @type               tail
   tag                 springboot.access
   path                /var/log/*.log
-  pos_file            /fluentd/etc/log/log.pos
+  pos_file            /var/log/log.pos
   rotate_wait         5
   read_from_head      false
     <parse>
