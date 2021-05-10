@@ -2,7 +2,7 @@
 - name: 'restart-docker-fluent'
   become: yes
   docker_container:
-    image: "hiclass.azurecr.io/fluent:{{ docker_tag }}"
+    image: "fluent/fluentd:{{ docker_tag }}"
     name: "{{ container_name }}"
     volumes: '{{ exposed_volumes }}'
     ports: '{{ published_ports }}'
@@ -19,7 +19,7 @@
 - name: 'start-docker-fluent'
   become: yes
   docker_container:
-    image: "hiclass.azurecr.io/fluent:{{ docker_tag }}"
+    image: "fluent/fluentd:{{ docker_tag }}"
     name: "{{ container_name }}"
     volumes: '{{ exposed_volumes }}'
     ports: '{{ published_ports }}'
