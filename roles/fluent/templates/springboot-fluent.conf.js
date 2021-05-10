@@ -20,7 +20,7 @@
 
 
 <match springboot.access>
-  @type                  forward
+  @type                  copy
     <store>
       @type              stdout
     </store>
