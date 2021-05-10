@@ -26,8 +26,7 @@
     exposed_ports: '{{ exposed_ports }}'
     command: '{{ item }}'
     loop:
-      - "gem install fluent-plugin-elasticsearch"
-      - "gem install fluent-plugin-grok-parser"
+      - "gem install fluent-plugin-elasticsearch && gem install fluent-plugin-grok-parser"
     state: 'started'
     restart_policy: 'no'
     log_driver: 'syslog'
