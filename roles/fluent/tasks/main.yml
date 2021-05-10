@@ -16,6 +16,7 @@
     path: "/var/log/pos"
     state: 'directory'
     mode: '0755'
+  become: yes
 
 - name: "Create the {{ config_directory }} directory on the host"
   file:
