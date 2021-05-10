@@ -11,11 +11,11 @@
 <source>
    @type tail
    path /var/log/*.log
-   tag nginx.access
+   tag springboot.access
    format nginx
 </source>
 
-<match springboot.**>
+<match springboot.access>
   @type forward
     <server>
       name fluentd-aggregator
