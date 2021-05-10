@@ -25,7 +25,7 @@
 #########################################################################################################
 - name: 'Start the fluent docker container'
   docker_container:
-    image: "fluent/fluentd:{{ docker_tag }}"
+    image: "hiclass.azurecr.io/fluent:{{ docker_tag }}"
     name: "{{ container_name }}"
     volumes: '{{ exposed_volumes }}'
     ports: '{{ published_ports }}'
