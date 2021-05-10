@@ -2,7 +2,7 @@
   @type               tail
   tag                 book_batch
   path                path /var/log/*.log
-  pos_file            path {{ pos_file }}
+  pos_file            path /home/azureuser/log/pos.log
   rotate_wait         5
   read_from_head      false
     <parse>
