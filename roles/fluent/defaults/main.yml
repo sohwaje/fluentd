@@ -1,7 +1,7 @@
 ---
-remote_user: azureuser
+remote_user: sigongweb
 app__log_directory: "/home/sigongweb/apps/logs"
-base_directory: "/home/azureuser/fluent"
+base_directory: "/home/sigongweb/fluent"
 config_file_name: "fluent.conf"
 config_directory: "{{ base_directory }}/conf"
 log_diectory: /var/log
