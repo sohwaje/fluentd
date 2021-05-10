@@ -5,7 +5,6 @@ base_directory: "/home/sigongweb/fluent"
 config_file_name: "fluent.conf"
 config_directory: "{{ base_directory }}/conf"
 log_diectory: /var/log
-pos_file: "/home/sigongweb/pos/log.pos"
 container_name: 'fluent'
 docker_tag: 'v1.12.0-debian-1.0'
 
