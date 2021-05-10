@@ -12,7 +12,7 @@
    @type tail
    path /var/log/*.log
    tag springboot.access
-   format nginx
+   format none
 </source>
 
 <match springboot.access>
