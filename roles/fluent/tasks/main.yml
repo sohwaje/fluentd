@@ -19,7 +19,7 @@
 
 - name: "Put the {{ config_file_name }} file in {{ config_directory }}"
   template:
-    src: nginx.fluent.conf.js
+    src: springboot-fluent.conf.js
     dest: "{{ config_directory }}/fluent.conf"
   notify: 'restart-docker-fluent'
 #########################################################################################################
