@@ -6,7 +6,9 @@
   rotate_wait         5
   read_from_head      false
     <parse>
-      @type           json
+    @type multiline_grok
+          grok_pattern %{TIMESTAMP_ISO8601:timestamp}\s+%{LOGLEVEL:severity}\s+\[%{DATA:service},%{DATA:trace},%{DATA:span},%{DATA:exportable}\]\s+%{DATA:pid}\s+---\s+\[\s*%{DATA:thread}\]\s+%{DATA:class}\s+\[\s*%{NUMBER:line}\]\s:\s+%{GREEDYDATA:rest}
+multiline_start_regexp /^[\d]/
     </parse>
 </source>
 <filter springboot.access>
