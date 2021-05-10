@@ -1,15 +1,15 @@
 <source>
   @type               tail
-  tag                 book_batch
-  path                path /var/log/*.log
-  pos_file            path /var/log/pos.log
+  tag                 springboot.access
+  path                /var/log/*.log
+  pos_file            /var/log/log.pos
   rotate_wait         5
   read_from_head      false
     <parse>
       @type           json
     </parse>
 </source>
-<filter springboot.**>
+<filter springboot.access>
   @type               record_transformer
     <record>
       hostname        "#{Socket.gethostname}"
@@ -19,8 +19,8 @@
 </filter>
 
 
-<match springboot.**>
-  @type                  copy
+<match springboot.access>
+  @type                  forward
     <store>
       @type              stdout
     </store>
