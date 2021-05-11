@@ -7,6 +7,9 @@ log_diectory: /var/log
 container_name: 'fluentd'
 docker_tag: 'v1.12.0-debian-1.0'
 
+## syslog dir
+syslog_dir: "/etc/rsyslog.d/"
+
 exposed_ports:
   - "5140"
   - "24224"

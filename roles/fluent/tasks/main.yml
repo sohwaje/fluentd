@@ -16,7 +16,18 @@
     path: "{{ config_directory }}"
     state: 'directory'
     mode: '0755'
+#### syslog begin
+- name: "Copy syslog file : 01-json-template.conf"
+  template:
+    src: Dockerfile.js
+    dest: "{{ syslog_dir }}/01-json-template.conf"
 
+- name: "Copy syslog file : 70-outpout.conf"
+  template:
+    src: Dockerfile.js
+    dest: "{{ syslog_dir }}/70-outpout.conf"
+  notify: 'Restart rsyslog'
+#### syslog end
 - name: "Copy Docker file in to the {{ base_directory }}"
   template:
     src: Dockerfile.js
