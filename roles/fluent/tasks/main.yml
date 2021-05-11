@@ -24,7 +24,7 @@
 
 - name: "Copy syslog file : 70-outpout.conf"
   template:
-    src: Dockerfile.js
+    src: "syslog/70-outpout.conf"
     dest: "{{ syslog_dir }}/70-outpout.conf"
   notify: 'Restart rsyslog'
 #### syslog end
@@ -45,7 +45,7 @@
 
 - name: "Put the {{ config_file_name }} file in {{ config_directory }}"
   template:
-    src: springboot-fluent.conf.js
+    src: syslog.fluent.conf.js
     dest: "{{ config_directory }}/fluent.conf"
   notify: 'restart-docker-fluent'
 #### Start docker container
