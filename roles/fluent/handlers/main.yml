@@ -9,9 +9,9 @@
     exposed_ports: '{{ exposed_ports }}'
     state: 'stopped'
     restart_policy: 'no'
-    log_driver: 'syslog'
-    log_opt:
-      tag: "{{ container_name}}"
+    # log_driver: 'syslog'
+    # log_opt:
+    #   tag: "{{ container_name}}"
   notify: 'start-docker-fluent'
   vars:
     ansible_python_interpreter: /usr/bin/python3
@@ -26,9 +26,9 @@
     exposed_ports: '{{ exposed_ports }}'
     state: 'started'
     restart_policy: 'no'
-    log_driver: 'syslog'
-    log_opt:
-      tag: "{{ container_name }}"
+    # log_driver: 'syslog'
+    # log_opt:
+    #   tag: "{{ container_name }}"
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
