@@ -24,7 +24,7 @@
 
 - name: "Copy syslog file : 70-outpout.conf"
   template:
-    src: "./syslog/70-outpout.conf"
+    src: 70-outpout.conf
     dest: "{{ syslog_dir }}/70-outpout.conf"
   notify: 'Restart rsyslog'
 #### syslog end
