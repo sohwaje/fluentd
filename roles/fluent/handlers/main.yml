@@ -34,5 +34,5 @@
 
 ---
 # restart for syslog
-- name: Restart rsyslog
+- name: 'Restart rsyslog'
   service: name=rsyslogd state=restarted
