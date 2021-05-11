@@ -16,18 +16,7 @@
     path: "{{ config_directory }}"
     state: 'directory'
     mode: '0755'
-#### syslog begin // 맞는 json 포맷을 찾아야 함
-# - name: "Copy syslog file : 01-json-template.conf"
-#   template:
-#     src: Dockerfile.js
-#     dest: "{{ syslog_dir }}/01-json-template.conf"
 
-- name: "Copy syslog file : 70-outpout.conf"
-  template:
-    src: 70-output.conf
-    dest: "{{ syslog_dir }}/70-outpout.conf"
-  notify: 'Restart rsyslog'
-#### syslog end
 - name: "Copy Docker file in to the {{ base_directory }}"
   template:
     src: Dockerfile.js
@@ -45,7 +34,7 @@
 
 - name: "Put the {{ config_file_name }} file in {{ config_directory }}"
   template:
-    src: syslog.fluent.conf.js
+    src: {{ config_file_name }}
     dest: "{{ config_directory }}/fluent.conf"
   notify: 'restart-docker-fluent'
 #### Start docker container
