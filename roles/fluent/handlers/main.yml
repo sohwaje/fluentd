@@ -34,4 +34,7 @@
 
 # restart for syslog
 - name: 'Restart rsyslog'
-  service: name=rsyslog state=restarted
+  service:
+    name: rsyslog
+    state: restarted
+  when: service_default_state | default('started') == 'started'
