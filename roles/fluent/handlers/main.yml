@@ -7,6 +7,8 @@
     volumes: '{{ exposed_volumes }}'
     ports: '{{ published_ports }}'
     exposed_ports: '{{ exposed_ports }}'
+    networks:
+      - name: '{{ dokcer_network }}'
     state: 'stopped'
     restart_policy: 'no'
     # log_driver: 'syslog'
@@ -24,6 +26,8 @@
     volumes: '{{ exposed_volumes }}'
     ports: '{{ published_ports }}'
     exposed_ports: '{{ exposed_ports }}'
+    networks:
+      - name: '{{ dokcer_network }}'
     state: 'started'
     restart_policy: 'no'
     # log_driver: 'syslog'
