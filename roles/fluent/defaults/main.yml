@@ -6,7 +6,7 @@ config_directory: "{{ base_directory }}/conf"
 log_diectory: /var/log
 container_name: 'fluentd'
 docker_tag: 'v1.12.0-debian-1.0'
-docker_network: 'socket'
+docker_network_name : "socket"
 
 ## syslog dir
 # syslog_dir: "/etc/rsyslog.d/"
