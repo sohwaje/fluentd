@@ -1,14 +1,14 @@
 ---
-app__log_directory: "/home/sigongweb/log"
-base_directory: "/home/sigongweb/fluent"
-config_file_name: "nginx.fluent.conf.js"
+app__log_directory: "/home/azureuser/logs"
+base_directory: "/home/azureuser/fluent"
+config_file_name: "nodejs.fluent.conf.js"
 config_directory: "{{ base_directory }}/conf"
 log_diectory: /var/log
 container_name: 'fluentd'
 docker_tag: 'v1.12.0-debian-1.0'
 
 ## syslog dir
-syslog_dir: "/etc/rsyslog.d/"
+# syslog_dir: "/etc/rsyslog.d/"
 
 exposed_ports:
   - "5140"
