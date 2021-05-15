@@ -1,19 +1,6 @@
 # fluentd
 
 ## EXAMPLE: Collect NGINX log
-
-1. Download
-```
-git clone https://github.com/sohwaje/fluentd.git
-```
-
-2. Configure
-```
-cd fluentd/
-
-docker-compose up -d --build
-```
-3. eidt log directories localtion
 ```
 vi fluent.conf
 # nginx accesslog
