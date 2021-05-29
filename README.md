@@ -1,7 +1,8 @@
 # fluentd
 ##
-|------------|
+|            |
 | app log dir|
+|------------|
 
 ## EXAMPLE1: Collect NGINX log
 ```
