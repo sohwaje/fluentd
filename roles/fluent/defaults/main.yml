@@ -2,7 +2,7 @@
 # fluent 디렉토리
 base_directory: "/home/azureuser/fluent"
 # 모니터링 대상 로그 디렉토리
-app_log_directory: "/home/azureuser/logs"
+app_log_directory: "/var/log/nginx"
 # 수집할 app의 fluent 설정 파일
 config_file_name: "nginx.fluent.conf.js"
 config_directory: "{{ base_directory }}/conf"
