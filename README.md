@@ -1,7 +1,8 @@
 # fluentd
-##
-| app log dir|                                 | fluentd log dir /var/log |
-|------------|-------------------------------> |--------------------------|
+## 앱로그 디렉토리를 fluentd 로그 디렉토리에 마운트
+| 앱 로그 디렉토리 | fluentd 로그 디렉토리 |
+| app log dir|fluentd log dir /var/log |
+|------------|-------------------------|
 
 ## EXAMPLE1: Collect NGINX log
 ```
