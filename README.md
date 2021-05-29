@@ -1,6 +1,5 @@
 # fluentd
 ##
-|            |
 | app log dir|
 |------------|
 
