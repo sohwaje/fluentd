@@ -1,8 +1,8 @@
 # fluentd
 ##
-| ------------ |
-| app log dir  |
-|              |
+|------------|
+| app log dir|
+
 ## EXAMPLE1: Collect NGINX log
 ```
 vi fluent.conf
