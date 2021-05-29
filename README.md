@@ -2,7 +2,7 @@
 ##
 | ------------ |
 | app log dir  |
-| ------------ |
+|              |
 ## EXAMPLE1: Collect NGINX log
 ```
 vi fluent.conf
