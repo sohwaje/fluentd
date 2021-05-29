@@ -1,7 +1,7 @@
 # fluentd
 ##
-| app log dir|
-|------------|
+| app log dir|                                 | fluentd log dir /var/log |
+|------------|-------------------------------> |--------------------------|
 
 ## EXAMPLE1: Collect NGINX log
 ```
