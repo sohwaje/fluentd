@@ -1,28 +1,28 @@
 ---
-
 - include: multi_os.yml
 
 - include_tasks: RedHat.yml
   when: ansible_os_family == 'RedHat' and ansible_distribution != 'Fedora'
 
-- name: "Create the {{ base_directory }} directory on the host"
+- name: "{{ base_directory }} 디렉토리 생성"
   file:
     path: "{{ base_directory }}"
     state: 'directory'
     mode: '0755'
 
-- name: "Create the {{ config_directory }} directory on the host"
+- name: "{{ config_directory }} 디렉토리 생성"
   file:
     path: "{{ config_directory }}"
     state: 'directory'
     mode: '0755'
 
-- name: "Copy Docker file in to the {{ base_directory }}"
+# template
+- name: "도커 파일을 {{ base_directory }}에 복사"
   template:
     src: Dockerfile.js
     dest: "{{ base_directory }}/Dockerfile"
 
-- name: build container image
+- name: 도커 컨테이너 이미지 빌드
   docker_image:
     name: "fluent/fluentd:{{ docker_tag }}"
     build:
@@ -32,13 +32,15 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
-- name: "Put the {{ config_file_name }} file in {{ config_directory }}"
+# app template
+- name: "{{ config_file_name }} 템플릿을 {{ config_directory }}로 복사"
   template:
     src: "{{ config_file_name }}"
     dest: "{{ config_directory }}/fluent.conf"
   notify: 'restart-docker-fluent'
+
 #### Start docker container
-- name: 'Start the fluent docker container'
+- name: 'Fluent 컨테이너 스타트'
   docker_container:
     image: "fluent/fluentd:{{ docker_tag }}"
     name: "{{ container_name }}"
@@ -47,8 +49,5 @@
     exposed_ports: '{{ exposed_ports }}'
     state: 'started'
     restart_policy: 'no'
-    # log_driver: 'syslog'
-    # log_options:
-    #   tag: "{{ container_name }}"
   vars:
     ansible_python_interpreter: /usr/bin/python3

@@ -4,9 +4,9 @@ services:
     build: .
     container_name: fluentd
     volumes:
-      - ./conf:/fluentd/etc # 로컬의 fluentd.conf 파일을 컨테이너로 마운트
-      - /var/log/nginx/oauth2client:/var/log
-      - /var/lib/docker/containers:/fluentd/log/containers
+      - ./conf:/fluentd/etc                                 # 로컬의 fluentd.conf 파일을 fluentd 컨테이너로 마운트
+      - /var/log/nginx:/var/log                             # nginx 로그 디렉토리를 fluentd 컨테이너로 마운트
+      - /var/lib/docker/containers:/fluentd/log/containers  # 도커 컨테이너 로그 디렉토리를 fluentd 컨테이너로 마운트
     ports:
       - "5140:5140/udp"
       - "24224:24224"

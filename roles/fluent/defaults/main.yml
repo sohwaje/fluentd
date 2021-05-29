@@ -1,15 +1,19 @@
 ---
-app__log_directory: "/home/azureuser/logs"
+# fluent 디렉토리
 base_directory: "/home/azureuser/fluent"
+# 모니터링 대상 로그 디렉토리
+app_log_directory: "/home/azureuser/logs"
+# 수집할 app의 fluent 설정 파일
 config_file_name: "nodejs.fluent.conf.js"
 config_directory: "{{ base_directory }}/conf"
+
+# fluent가 수집할 로그들이 쌓이는 위치
 log_diectory: /var/log
 container_name: 'fluentd'
 docker_tag: 'v1.12.0-debian-1.0'
-docker_network_name : "socket" # default: "default"
 
-## syslog dir
-# syslog_dir: "/etc/rsyslog.d/"
+# 로그 수집 대상이 컨테이너라면 그 컨테이너의 네트워크 이름을 명시
+docker_network_name : "socket" # default: "default"
 
 exposed_ports:
   - "5140"
@@ -23,5 +27,5 @@ published_ports:
 
 exposed_volumes:
   - /etc/localtime:/etc/localtime:ro
-  - "{{ config_directory }}:/fluentd/etc" # 로컬의 fluentd.conf 파일을 컨테이너로 마운트
-  - "{{ app__log_directory }}:{{ log_diectory }}" # 모니터링 대상 로그 디렉토리
+  - "{{ config_directory }}:/fluentd/etc" # 로컬의 fluentd.conf 파일을 fluent 컨테이너로 마운트
+  - "{{ app_log_directory }}:{{ log_diectory }}" # 모니터링 대상 로그 디렉토리를 fluent 컨테이너의 /var/log로 마운트

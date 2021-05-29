@@ -11,9 +11,6 @@
       - name: '{{ docker_network_name  }}'
     state: 'stopped'
     restart_policy: 'no'
-    # log_driver: 'syslog'
-    # log_opt:
-    #   tag: "{{ container_name}}"
   notify: 'start-docker-fluent'
   vars:
     ansible_python_interpreter: /usr/bin/python3
@@ -30,9 +27,6 @@
       - name: '{{ docker_network_name  }}'
     state: 'started'
     restart_policy: 'no'
-    # log_driver: 'syslog'
-    # log_opt:
-    #   tag: "{{ container_name }}"
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
