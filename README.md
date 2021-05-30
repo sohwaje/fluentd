@@ -1,9 +1,12 @@
 # fluentd
 *** 2021.05.29 TEST
+
+## 모든 앱의 로그를 /var/log에 저장하고 fluentd 도커 컨테이너의 /var/log로 마운트 한다.
+
 ## 앱로그 디렉토리를 fluentd 로그 디렉토리에 마운트
 | 앱 로그 디렉토리 |    fluentd 로그 디렉토리      |
 |------------  | -------------------------- |
-| app log dir  |           /var/log         |
+| /var/log     |           /var/log         |
 |              |                            |
 
 ## EXAMPLE1: Collect NGINX log
