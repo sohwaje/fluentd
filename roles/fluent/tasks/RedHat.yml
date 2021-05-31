@@ -9,7 +9,6 @@
   yum:
     name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
     state: latest
-  become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python2
   when: ansible_distribution == 'Red Hat Enterprise Linux'
@@ -19,7 +18,6 @@
   yum:
     name: "epel-release"
     state: present
-  become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python2
   when: ansible_distribution == 'CentOS'
@@ -30,7 +28,6 @@
     name:
       - docker
       - docker-compose
-  become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3
   
@@ -39,7 +36,6 @@
   yum:
     name: libselinux-python3
     state: present
-  become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python2
   
