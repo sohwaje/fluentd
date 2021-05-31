@@ -1,3 +1,4 @@
 - hosts: "{{ hosts }}"
   roles:
     - role: fluent
+  become: yes
