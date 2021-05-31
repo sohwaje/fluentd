@@ -13,7 +13,7 @@ container_name: 'fluentd'
 docker_tag: 'v1.12.0-debian-1.0'
 
 # 로그 수집 대상이 컨테이너라면 그 컨테이너의 네트워크 이름을 명시
-docker_network_name : "caculate-network" # default: "default"
+docker_network_name : "educon_network" # default: "default"
 
 exposed_ports:
   - "5140"
