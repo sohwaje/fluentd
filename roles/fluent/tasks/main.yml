@@ -47,6 +47,8 @@
     volumes: '{{ exposed_volumes }}'
     ports: '{{ published_ports }}'
     exposed_ports: '{{ exposed_ports }}'
+    networks:
+      - name: '{{ docker_network_name  }}'  
     state: 'started'
     restart_policy: 'no'
   vars:
